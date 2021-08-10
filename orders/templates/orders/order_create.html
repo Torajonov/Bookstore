@@ -1,0 +1,132 @@
+{% extends 'bookshop/base.html' %}
+{% load static %}
+<title>{% block title %} Tekshirib ko'rish | Bookshop {% endblock%}</title>
+{% block content %} 
+    <div class="ps-hero">
+        <div class="container">
+            <h3>Buyurtma tafsiloti</h3>
+            <p>Sahifa tartibi</p>
+        </div>
+    </div>
+    <div class="ps-checkout pt-40 pb-40">
+        <div class="ps-container">
+            <form class="ps-form--checkout"  method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
+                        <div class="ps-checkout__billing">
+                            <h3>Hisob -kitob tafsilotlari</h3>
+                            <div class="form-group form-group--inline">
+                                <label>Ismingiz<span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="text" name="first_name" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-group--inline">
+                                <label>Familiyangiz<span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="text" name="last_name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group--inline">
+                                <label>Email Manzilingiz<span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-group--inline">
+                                <label>Yashash Manzilingiz<span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="text" name="address" required>
+                                </div>
+                            </div>
+                            <div class="form-group form-group--inline">
+                                <label>Telefon raqamingiz<span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="text" name="phone">
+                                </div>
+                            </div>
+                            <div class="form-group form-group--inline">
+                                <label>Post kodi<span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="text" name="postal_code">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group form-group--inline">
+                                <label>Shaharingiz <span>*</span>
+                                </label>
+                                <div class="form-group__content">
+                                    <input class="form-control" type="text" name="city">
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
+                        <div class="ps-checkout__order">
+                            <header>
+                                <h3>Sizning buyurtmangiz</h3>
+                            </header>
+                            <div class="content">
+                                <table class="table ps-checkout__products">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase">Mahsulot</th>
+                                            <th class="text-uppercase">Umumiy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for item in cart %}
+                                        
+                                            <tr>
+                                                <td>{{ item.product.name }} {{ item.quantity }}x</td>
+                                                <td> ${{ item.total_price|floatformat:2 }} </td>
+                                            </tr>
+                                        {% endfor %}
+                                        {% if cart.coupon %}
+                                        <tr>
+                                            <td>"{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off) </td>
+                                            <td>
+                                                <span style="color: red;">- ${{ cart.get_discount|floatformat:2 }}</span></td>
+                                        </tr>
+                                        {% endif %}
+                                        <tr>
+                                            <td>Umumiy narx: </td>
+                                            <td>${{ cart.get_total_price_after_discount|floatformat:2 }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <footer>
+                                <h3>Tolov usullari</h3>
+                                
+                                <div class="form-group paypal">
+                                    <div class="ps-radio ps-radio--small">
+                                        <input class="form-control" type="radio" name="payment" id="rdo02" checked>
+                                        <label for="rdo02">Credit Card</label>
+                                    </div>
+                                    <ul class="ps-payment-method">
+                                        <li><a href="#"><img src="{% static 'bookshop/images/payment/visa.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'bookshop/images/payment/mastercard.png' %}" alt=""></a></li>
+                                       
+                                    </ul>
+                                    <button class="ps-btn ps-btn--fullwidth">To'lov jarayoni</button>
+                                </div>
+                            </footer>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}

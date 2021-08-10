@@ -1,0 +1,13 @@
+{% extends 'bookshop/base.html' %}
+{% load static %}
+<title>{% block title %} Buyurtma yaratildi| Bookshop {% endblock%}</title>
+{% block content %} 
+<div class="ps-hero">
+    <div class="container">
+        <h1>Rahmat</h1>
+        <p>Sizning buyurtmangiz muvaffaqiyatli yakunlandi. Sizning buyurtma raqamingiz
+        <strong>{{ order.id }}</strong>.</p>
+    </div>
+</div>
+   
+{% endblock %}
