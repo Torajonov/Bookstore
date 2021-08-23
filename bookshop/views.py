@@ -5,7 +5,12 @@ from django.views.generic import  DetailView
 from cart.forms import CartAddProductForm
 from django.contrib import messages
 from datetime import datetime
-# Create your views here.
+from django.template import RequestContext
+ 
+ 
+def customHandler404(request, exception=None):
+    return render(request, 'bookshop/404.html')
+
 
 def index(request):
     top_five_products = Product.objects.all()[:8]
@@ -17,8 +22,6 @@ def index(request):
         'now': time_now.strftime("%H:%M")
     }
     return render(request,'bookshop/index.html',{'categories':categories,'products':products,'top_five_products':top_five_products,'time':time['now'],'blog':blog})
-    
-
 
     
 def product_list(request,category_slug=None):

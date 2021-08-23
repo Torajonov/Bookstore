@@ -79,7 +79,7 @@
                     {% for product in top_five_products %}
                         <div class="col-md-3">
                             <div class="ps-product--fashion">
-                                    <div class="ps-product__thumbnail"><a class="ps-product__overlay" href="{% url 'product_detail' product.slug %}"></a><img style="height: 300px;" class="lazy W-100" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
+                                    <div class="ps-product__thumbnail"><a class="ps-product__overlay" href="{% url 'product_detail' product.slug %}"></a><img style="height: 300px;max-width:250px" class="lazy W-100" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
                                         <ul class="ps-product__actions">
                                             
                                         </ul>
@@ -113,7 +113,7 @@
                         <div class="ps-post ps-post--home">
                             <div class="ps-post__thumbnail">
                                 <div class="ps-post__posted"><span class="date">{{p.date}}</span><span class="month"></span></div><a class="ps-post__overlay" href="{% url 'product_list' %}"></a>
-                                <img class="lazy" style="height: 350px; width=auto;" src="{{p.image.url}}" alt="">
+                                <img class="lazy" style="height: 350px;max-width:250px" src="{{p.image.url}}" alt="">
                             </div>
                             <div class="ps-post__content"><a class="ps-post__title" href="{% url 'product_list' %}">{{p.title}}</a>
                             <p>{{p.body}}<i class="ps-icon-arrow-right"></i></a>
