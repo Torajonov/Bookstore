@@ -1,0 +1,155 @@
+{% extends 'bookshop/base.html' %}
+{% load static %}
+<title>{% block title %} Mahsulot detallari{% endblock%}</title>
+{% block content %}
+
+    <div class="ps-hero">
+        <div class="container">
+            <h3>{{product.name }}</h3>
+            
+        </div>
+    </div>
+    <main class="ps-main">
+        <div class="ps-container">
+            <div class="ps-product--detail">
+                <div class="row">
+                    <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 ">
+                        <div class="ps-product__thumbnail">
+                            <div class="ps-product__preview">
+                                <div class="ps-product__variants">
+                                    <div class="item"><img  src="{{ product.image.url }}" alt=""></div>
+                                
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="ps-product__image">
+                                <div class="item"><img class="zoom" src="{{ product.image.url }}" alt="" data-zoom-image="images/shoe-detail/1.jpg"></div>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12 ">
+                        <div class="ps-product__info">
+                            <!-- <div class="ps-product__rating">
+                                <select class="ps-rating">
+                                   
+                                    <option value="1">1</option>
+                                    <option value="1">2</option>
+                                    <option value="1">3</option>
+                                    <option value="1">4</option>
+                                    <option value="2">5</option>
+                                </select><a href="#">(Read all 8 reviews)</a>
+                                    
+                            </div> -->
+                            <h1>{{ product.name }}</h1>
+                            
+                            <h3 class="ps-product__price"><span>$</span>{{product.price}}</h3>
+                            <p class="ps-product__category"><b>Turkum :</b>  <br>{{ product.category}}</p>
+                            <div class="ps-product__short-desc">
+                                <p><b>Mahsulot tavsifi:</b> <br>{{ product.description }}</p>
+                            </div>
+                            
+                            <form action="{% url 'cart_add' product.id  %}" method="post">
+                                {{ cart_product_form }}
+                                {% csrf_token %}
+                                <div class="ps-product__shopping">
+                                    <br>
+                                    <input class="ps-btn" type="submit" value="Add to cart">
+                                </div>
+                               
+                            </form>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="ps-product__content">
+                    <ul class="tab-list" role="tablist">
+                        <li class="active"><a href="#tab_01" aria-controls="tab_01" role="tab" data-toggle="tab">Sharh</a></li>
+                        <li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">Izoh qoldirish</a></li>
+                        
+                       
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="tab_01">
+                        <p>{{ product.description }}</p>
+                       
+                    </div>
+
+                    <div class="tab-pane " role="tabpanel" id="tab_02">
+                        <p class="mb-20"> Odamlar uchun sharhlar <strong>{{ product.name }}</strong></p>
+                        
+                            <div class="ps-review">
+                            {% for review in all_reviews %}
+                                <div class="ps-review__content">
+                                    <header>
+                                        <select class="ps-rating">
+                                            <option value="{{ review.rating }}">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                        <p> {{ review.name }} orqali</p>
+                                    </header>
+                                    <p>{{ review.review_comment}}</p>
+                                </div>
+                            {% endfor %}
+                            </div>
+                       
+                        <form class="ps-form--product-review" action="{% url 'review' product.id %}" method="post">
+                            {% csrf_token %}
+                            {% if messages %}
+                                <ul class="messages">
+                                    {% for message in messages %}
+                                    <li{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            <h4>O`z fikringizni qoldiring</h4>
+                            <div class="row">
+                          
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                                    <div class="form-group">
+                                        <label>Ismingiz:<span>*</span></label>
+                                        <input class="form-control" type="text" placeholder="" name="name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Emailingiz:<span>*</span></label>
+                                        <input class="form-control" type="email" placeholder="" name="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sizning reytingingiz<span></span></label>
+                                        <select class="ps-rating" name="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ">
+                                    <div class="form-group">
+                                        <label>Sizning fikringiz</label>
+                                        <textarea class="form-control" rows="6" name="review"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="ps-btn--outline">Sharhni yuborish</button>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </form>
+                    </div>
+                   
+                   
+                </div>
+            </div>
+        </div>
+    </main>
+   
+	
+{% endblock %}

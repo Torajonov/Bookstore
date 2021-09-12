@@ -1,0 +1,102 @@
+{% extends 'bookshop/base.html' %}
+{% load static %}
+<title>{% block title %} Karta detallari | Bookshop {% endblock%}</title>
+{% block content %} 
+    <div class="ps-hero">
+        <div class="container">
+            <h3>Sizning kartangiz</h3>
+            <p>Karta sahifalari</p>
+        </div>
+    </div>
+    
+
+   
+    <div class="ps-content pt-80 pb-80">
+        <div class="ps-container">
+            <div class="ps-cart-listing">
+                <table class="table ps-cart__table">
+                    <thead>
+                        <tr>
+                            <th>Hamma mahsulotlar</th>
+                            <th>Narxlar</th>
+                            <th>Miqdor</th>
+                            <th>Hammasi</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for item in cart %}
+                            {% with product=item.product %}
+                                <tr>
+                                    <td><a class="ps-product--compare" href="{{ product.get_absolute_url }}">
+                                        <img class="mr-15" src="{% if product.image %}{{ product.image.url }}
+                                        {% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
+                                        {{ product.name }}</a></td>
+                                    <td>${{ item.price }}</td>
+                                    <td>
+                                        <div class="form-group--number">
+                                            <form action="{% url 'cart_add' product.id %}" method="post">
+                                                {{ item.update_quantity_form.quantity }}
+                                                {{ item.update_quantity_form.override }}
+                                                <input type="submit"  value="+" style="background-color: black; color:white;">
+                                                {% csrf_token %}
+                                              </form>
+                                           
+                                            
+                                        </div>
+                                    </td>
+                                    <td>${{ item.total_price }}</td>
+                                    <td>
+                                        <form action="{% url 'cart_remove' product.id %}" method="post">
+                                            <button class="ps-remove"></button>
+                                            {% csrf_token %}
+                                          </form>
+                                        
+                                    </td>
+                                </tr>
+                            {% endwith %}
+                        {% endfor %}
+                       
+                    </tbody>
+                </table>
+                <div class="ps-cart__actions">
+                    <div class="ps-cart__promotion">
+                        <div class="form-group">
+                            <div class="ps-form--icon">
+                               
+                                <form action="{% url 'coupons:apply' %}" method="post">
+                                    
+                                     <input class="form-control" name="coupon" type="text" placeholder="Promo Code">
+                                    {% csrf_token %}
+                                </form>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a href="{% url 'product_list' %}"><button class="ps-btn ps-btn--gray">Savdoni davom ettirish</button></a>
+                        </div>
+                    </div>
+                    <div class="ps-cart__total">
+                        {% if cart.coupon %}
+                            
+                                <h3>Jami <span>${{ cart.get_total_price|floatformat:2 }}</span></h3>
+                                <h3>"{{ cart.coupon.code }}" kupon
+                                    ({{ cart.coupon.discount }}% off)<span style="color: red;">- ${{ cart.get_discount|floatformat:2 }}</span></h3>
+
+                        {% endif %}
+                        <h3>Umumiy narx: <span> ${{ cart.get_total_price_after_discount|floatformat:2 }}</span></h3>
+
+                        {% if cart.get_total_price == 0 %}
+                        <button class="ps-btn" >Savat bo'sh</button>
+                        {% else %}
+                            <a class="ps-btn" href="{% url 'order_create' %}">Hisobga olish jarayoni</a>
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+{% endblock %}
+
