@@ -15,10 +15,10 @@ env.read_env()
 
 SECRET_KEY = '$(@kyv*7hkrfmo1p5ea&(ix05_xx7p(paz6bxrgqo-se#q9vt('
 
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ['.hreokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
