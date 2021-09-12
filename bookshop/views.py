@@ -8,8 +8,7 @@ from datetime import datetime
 from django.template import RequestContext
  
  
-def customHandler404(request, exception=None):
-    return render(request, 'bookshop/404.html')
+
 
 
 def index(request):

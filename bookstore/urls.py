@@ -13,6 +13,6 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
     path('payment/', include('payment.urls')),
 ]
-handler404 = 'bookshop.views.customHandler404'
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
