@@ -1,5 +1,5 @@
 from environs import Env
-from pathlib import Path
+
 import os
 import dj_database_url
 import django_heroku
