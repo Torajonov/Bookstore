@@ -20,7 +20,7 @@
                         <!-- LAYER NR. 2 -->
                         <div class="tp-caption   tp-resizeme" id="slide-6-layer-2" data-x="['left','left','left','left']" data-hoffset="['0','20','10','11']" data-y="['middle','middle','middle','middle']" data-voffset="['0','1','-1','0']" data-fontsize="['60','40','35','25']" data-lineheight="['60','60','40','30']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":500,"speed":1500,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 6; white-space: nowrap; font-size: 60px; line-height: 60px; font-weight: 400; color: white; letter-spacing: 0px;font-family:Libre Baskerville;text-transform:uppercase;">KIA K5</div>
                         <!-- LAYER NR. 3 -->
-                        <div class="tp-caption   tp-resizeme" id="slide-6-layer-3" data-x="['left','left','left','left']" data-hoffset="['0','20','10','10']" data-y="['middle','top','middle','middle']" data-voffset="['50','334','40','36']" data-fontsize="['20','15','15','15']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 600; color: white; letter-spacing: 0px;font-family:Nunito Sans;">Mavjud modellar bilan tanishing va Sotib oling </div>
+                        <div class="tp-caption   tp-resizeme" id="slide-6-layer-3" data-x="['left','left','left','left']" data-hoffset="['0','20','10','10']" data-y="['middle','top','middle','middle']" data-voffset="['50','334','40','36']" data-fontsize="['20','15','15','15']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"x:[-175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 600; color: white; letter-spacing: 0px;font-family:Nunito Sans;">Mavjud modellar bilan tanishing</div>
                         <!-- LAYER NR. 4 -->
                         <div class="tp-caption   tp-resizeme" id="slide-6-layer-5" data-x="['left','left','left','left']" data-hoffset="['0','20','10','10']" data-y="['middle','middle','middle','middle']" data-voffset="['-60','-44','-44','-36']" data-fontsize="['20','18','18','18']" data-width="none" data-height="none" data-whitespace="nowrap" data-type="text" data-responsive_offset="on" data-frames='[{"delay":320,"speed":1500,"frame":"0","from":"x:[175%];y:0px;z:0;rX:0;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:1;","mask":"x:[-100%];y:0;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]' data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 20px; font-weight: 600; color: white; letter-spacing: 0px;font-family:Poppins;text-transform:uppercase;">Avtomobillar xususiyatlari </div>
                     </li>
@@ -64,6 +64,7 @@
                                     </div>
                                     <div class="ps-product__content"><a class="ps-product__title" href="{% url 'product_detail' product.slug %}">{{ product.name }}</a>
                                         <p class="ps-product__price">${{ product.price }}</p><br>
+
                                         
                                         
                                     </div>
@@ -80,8 +81,8 @@
     <div class="ps-section">
         <div class="ps-container">
             <div class="ps-section__header text-center">
-                <h2 class="ps-section__title">Bizning hikoyalar</h2>
-                <p>Qiziqarli syujetga ega kitoblar</p>
+                <h2 class="ps-section__title">Avtosalonimizdagi yangiliklar</h2>
+                <p>Chegirma va Aksiyalar</p>
             </div>
             <div class="ps-section__content">
                 <div class="row">
@@ -89,10 +90,10 @@
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                         <div class="ps-post ps-post--home">
                             <div class="ps-post__thumbnail">
-                                <div class="ps-post__posted"><span class="date">{{p.date}}</span><span class="month"></span></div><a class="ps-post__overlay" href="{% url 'product_list' %}"></a>
+                                <div class="ps-post__posted"><span class="date">{{p.date}}</span><span class="month"></span></div><a class="ps-post__overlay" href="{% url 'contact_us' %}"></a>
                                 <img class="lazy" style="height: 350px;max-width:250px" src="{{p.image.url}}" alt="">
                             </div>
-                            <div class="ps-post__content"><a class="ps-post__title" href="{% url 'product_list' %}">{{p.title}}</a>
+                            <div class="ps-post__content"><a class="ps-post__title" href="{% url 'contact_us' %}">{{p.title}}</a>
                             <p>{{p.body}}<i class="ps-icon-arrow-right"></i></a>
                             </div>
                         </div>

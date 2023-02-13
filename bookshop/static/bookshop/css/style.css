@@ -48,6 +48,7 @@
         5. HELPERS
         6. CUSTOM
 */
+
 /* LIBRARIES */
 .masonry-wrapper .grid-item .grid-item__inner {
   position: relative; }
@@ -3671,7 +3672,7 @@ main.ps-main {
           display: block;
           padding: 10px 0; }
         .ps-product--detail .ps-product__content .tab-list li.active a:before {
-          width: 50px; } }
+          width: 30px; } }
 
 .ps-product--compare {
   display: inline-block;
