@@ -6,11 +6,11 @@
 
 {% block breadcrumbs %}
   <div class="breadcrumbs">
-    <a href="{% url "admin:index" %}">Bosh menu</a> &rsaquo;
-    <a href="{% url "admin:orders_order_changelist" %}">Buyurtmalar</a>
+    <a href="{% url "admin:index" %}">メインメニュー</a> &rsaquo;
+    <a href="{% url "admin:orders_order_changelist" %}"></a>
     &rsaquo;
-    <a href="{% url "admin:orders_order_change" order.id %}">Buyurtma {{ order.id }}</a>
-    &rsaquo; Detallari
+    <a href="{% url "admin:orders_order_change" order.id %}">注文 {{ order.id }}</a>
+    &rsaquo; 詳細
   </div>
 {% endblock %}
 
@@ -18,45 +18,45 @@
 <h1>Buyurtma{{ order.id }}</h1>
 <ul class="object-tools">
   <li>
-    <a href="#" onclick="window.print();">Bosib chiqarish buyurtmasi</a>
+    <a href="#" onclick="window.print();">プリント注文</a>
   </li>
 </ul>
 <table>
   <tr>
-    <th>Yaratilgan</th>
+    <th>作成した</th>
     <td>{{ order.created }}</td>
   </tr>
   <tr>
-    <th>Haridor</th>
+    <th>買い手</th>
     <td>{{ order.first_name }} {{ order.last_name }}</td>
   </tr>
   <tr>
-    <th>E-mail</th>
+    <th>メール</th>
     <td><a href="mailto:{{ order.email }}">{{ order.email }}</a></td>
   </tr>
   <tr>
-    <th>Manzil</th>
+    <th>住所</th>
     <td>{{ order.address }}, {{ order.postal_code }} {{ order.city }}</td>
   </tr>
   <tr>
-    <th>Umumiy hisob</th>
+    <th>合計金額</th>
     <td>${{ order.get_total_cost }}</td>
   </tr>
   <tr>
     <th>Status</th>
-    <td>{% if order.paid %}Paid{% else %}Pending payment{% endif %}</td>
+    <td>{% if order.paid %}有料{% else %}Pending payment{% endif %}</td>
   </tr>
 </table>
 
 <div class="module">
-  <h2>Sotib olingan narsalar</h2>
+  <h2>購入したアイテム</h2>
   <table style="width:100%">
     <thead>
       <tr>
-        <th>Mahsulot</th>
-        <th>Narxi</th>
-        <th>Soni</th>
-        <th>Jami</th>
+        <th>製品</th>
+        <th>料金</th>
+        <th></th>
+        <th>合計</th>
       </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@
         </tr>
       {% endfor %}
       <tr class="total">
-        <td colspan="3">Jami : </td>
+        <td colspan="3">合計 : </td>
         <td class="num">${{ order.get_total_cost }}</td>
       </tr>
     </tbody>

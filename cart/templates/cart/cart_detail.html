@@ -1,11 +1,11 @@
 {% extends 'bookshop/base.html' %}
 {% load static %}
-<title>{% block title %} Karta detallari | Bookshop {% endblock%}</title>
+<title>{% block title %} カードの詳細| KIA {% endblock%}</title>
 {% block content %} 
     <div class="ps-hero">
         <div class="container">
-            <h3>Sizning kartangiz</h3>
-            <p>Karta sahifalari</p>
+            <h3>あなたのカード</h3>
+            <p>カードページ</p>
         </div>
     </div>
     
@@ -17,10 +17,10 @@
                 <table class="table ps-cart__table">
                     <thead>
                         <tr>
-                            <th>Hamma mahsulotlar</th>
-                            <th>Narxlar</th>
-                            <th>Miqdor</th>
-                            <th>Hammasi</th>
+                            <th>すべての製品/th>
+                            <th>料金</th>
+                            <th>量</th>
+                            <th>すべての</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <a href="{% url 'product_list' %}"><button class="ps-btn ps-btn--gray">Savdoni davom ettirish</button></a>
+                            <a href="{% url 'product_list' %}"><button class="ps-btn ps-btn--gray">取引を続ける</button></a>
                         </div>
                     </div>
                     <div class="ps-cart__total">
@@ -84,12 +84,12 @@
                                     ({{ cart.coupon.discount }}% off)<span style="color: red;">- ${{ cart.get_discount|floatformat:2 }}</span></h3>
 
                         {% endif %}
-                        <h3>Umumiy narx: <span> ${{ cart.get_total_price_after_discount|floatformat:2 }}</span></h3>
+                        <h3>合計金額: <span> ${{ cart.get_total_price_after_discount|floatformat:2 }}</span></h3>
 
                         {% if cart.get_total_price == 0 %}
-                        <button class="ps-btn" >Savat bo'sh</button>
+                        <button class="ps-btn" >カートは空です</button>
                         {% else %}
-                            <a class="ps-btn" href="{% url 'order_create' %}">Xarid qilish jarayoni</a>
+                            <a class="ps-btn" href="{% url 'order_create' %}">X乾燥工程</a>
                         {% endif %}
                         
                     </div>
