@@ -1,6 +1,6 @@
 {% extends "bookshop/base.html" %}
 {% load static %}
-{% block title %}Kredit karta orqali to'lash{% endblock %}
+{% block title %}クレジットカードで支払う{% endblock %}
 
 {% block content %}
 <style>
@@ -25,28 +25,28 @@
 </style>
     <div class="ps-hero">
         <div class="container">
-            <h3>Kredit karta orqali to'lash</h3>
-            <p>Miqdorni to'lash</p>
+            <h3>クレジットカードで支払う</h3>
+            <p>金額の支払い</p>
         </div>
     </div>
 <div class="container" style="margin-top: 3%;">
-  <p>To'lovni tekshirish uchun ushbu kartadan foydalaning<strong>4111 1111 1111 1111 CVV 123  amal qilish muddati 12/28</strong></p>
+  <p>このカードを使用して支払いを確認します<strong>4111 1111 1111 1111 CVV 123  有効期間 12/28</strong></p>
     <form id="payment" method="post">
 
-        <label for="card-number">Karta raqami<span>*</span></label>
+        <label for="card-number">カード番号<span>*</span></label>
         <div id="card-number" class="field" ></div>
         <br>
         <label for="cvv">CVV<span>*</span></label>
         <div id="cvv" class="field"></div>
         <br>
-        <label for="expiration-date">Amal qilish muddati<span>*</span></label>
+        <label for="expiration-date">有効期間<span>*</span></label>
         <div id="expiration-date" class="field"></div>
         <br>
         <input type="hidden" id="nonce" name="payment_method_nonce" value="">
         
         {% csrf_token %}
         
-        <input class="ps-btn" type="submit" value="Pay">
+        <input class="ps-btn" type="submit" value="支払い">
         
        <br>
        <br>

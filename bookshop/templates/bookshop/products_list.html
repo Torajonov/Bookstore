@@ -5,8 +5,8 @@
     <div class="ps-section pt-80 pb-30">
         <div class="ps-container">
             <div class="ps-section__header text-center">
-                <h2 class="ps-section__title">BARCHA KATEGORIYALAR </h2>
-                <p>Tahririyatimiz tomonidan yaratilgan va tanlangan taniqli to'plamlar</p>
+                <h2 class="ps-section__title">すべてのカテゴリ</h2>
+                <p>ショールームで入手可能なすべてのKIAモデル</p>
                 
             </div>
 
@@ -16,7 +16,7 @@
                 
                 <ul class="ps-masonry__filter">
 
-                    <li {% if not category %} class="current" {% endif %}><a href="{% url 'product_list' %}" data-filter="*">Barchasi</a></li>
+                    <li {% if not category %} class="current" {% endif %}><a href="{% url 'product_list' %}" data-filter="*">すべての</a></li>
                     
                     {% for c in categories %}
                         <li {% if category.slug == c.slug %} class="current" {% endif %}><a href="{{ c.get_absolute_url }}" data-filter=".bracelets">{{ c.name }}</a></li>
@@ -31,7 +31,7 @@
                     {% for product in products %}
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
                             <div class="ps-product--fashion">
-                                    <div class="ps-product__thumbnail"><a class="ps-product__overlay" href="{% url 'product_detail' product.slug %}"></a><img class="lazy"style="height: 300px;max-width:250px" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
+                                    <div class="ps-product__thumbnail"><a class="ps-product__overlay" href="{% url 'product_detail' product.slug %}"></a><img class="lazy"style="height: 300px;max-width:350px" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" alt="">
                                         <ul class="ps-product__actions">
                                             
                                         </ul>

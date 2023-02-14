@@ -9,8 +9,8 @@ class Category(models.Model):
     
     class Meta:
         ordering = ('name',)
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+        verbose_name = 'CATEGORY'
+        verbose_name_plural = 'CATEGORY'
 
     def __str__(self):
         return self.name
@@ -62,8 +62,8 @@ class Contact(models.Model):
     email = models.EmailField('Emaili',max_length=70)
     message = models.CharField('Xabari',max_length=250)
 
-    verbose_name = 'Contact'
-    verbose_name_plural = 'Contactlar'
+    verbose_name = 'CONTACT'
+    verbose_name_plural = 'CONTACTS'
 
     def __str__(self):
         return f"{self.name}"
@@ -74,8 +74,8 @@ class Post(models.Model):
     image = models.ImageField('Maqola rasmi', upload_to='Maqolalar_rasmi/')
 
     class Meta:
-        verbose_name = 'Maqola'
-        verbose_name_plural = 'Maqolalar'
+        verbose_name = 'NEWS'
+        verbose_name_plural = 'NEWS'
 
     def __str__(self):
         return f'{self.title}'

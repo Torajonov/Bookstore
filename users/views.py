@@ -1,6 +1,7 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib import messages,auth
+from django.http import HttpResponse
 # Create your views here.
 
 

@@ -1,6 +1,6 @@
 {% extends 'bookshop/base.html' %}
 {% load static %}
-<title>{% block title %} Mahsulot detallari{% endblock%}</title>
+<title>{% block title %} 製品詳細{% endblock%}</title>
 {% block content %}
 
     <div class="ps-hero">
@@ -46,9 +46,9 @@
                             <h1>{{ product.name }}</h1>
                             
                             <h3 class="ps-product__price"><span>$</span>{{product.price}}</h3>
-                            <p class="ps-product__category"><b>Turkum :</b>  <br>{{ product.category}}</p>
+                            <p class="ps-product__category"><b>カテゴリー :</b>  <br>{{ product.category}}</p>
                             <div class="ps-product__short-desc">
-                                <p><b>Mahsulot tavsifi:</b> <br>{{ product.description }}</p>
+                                <p><b>製品説明:</b> <br>{{ product.description }}</p>
                             </div>
                             
                             <form action="{% url 'cart_add' product.id  %}" method="post">
@@ -56,7 +56,7 @@
                                 {% csrf_token %}
                                 <div class="ps-product__shopping">
                                     <br>
-                                    <input class="ps-btn" type="submit" value="Add to cart">
+                                    <input class="ps-btn" type="submit" value="カートに追加">
                                 </div>
                                
                             </form>
@@ -66,8 +66,8 @@
                 </div>
                 <div class="ps-product__content">
                     <ul class="tab-list" role="tablist">
-                        <li class="active"><a href="#tab_01" aria-controls="tab_01" role="tab" data-toggle="tab">Sharh</a></li>
-                        <li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">Izoh qoldirish</a></li>
+                        <li class="active"><a href="#tab_01" aria-controls="tab_01" role="tab" data-toggle="tab">コメント</a></li>
+                        <li><a href="#tab_02" aria-controls="tab_02" role="tab" data-toggle="tab">コメントを残す</a></li>
                         
                        
                     </ul>
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="tab-pane " role="tabpanel" id="tab_02">
-                        <p class="mb-20"> Odamlar uchun sharhlar <strong>{{ product.name }}</strong></p>
+                        <p class="mb-20">人のレビュー <strong>{{ product.name }}</strong></p>
                         
                             <div class="ps-review">
                             {% for review in all_reviews %}
@@ -92,7 +92,7 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select>
-                                        <p> {{ review.name }} orqali</p>
+                                        <p> {{ review.name }} 終えた</p>
                                     </header>
                                     <p>{{ review.review_comment}}</p>
                                 </div>
@@ -108,20 +108,20 @@
                                     {% endfor %}
                                 </ul>
                             {% endif %}
-                            <h4>O`z fikringizni qoldiring</h4>
+                            <h4>ご意見をお寄せください</h4>
                             <div class="row">
                           
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
                                     <div class="form-group">
-                                        <label>Ismingiz:<span>*</span></label>
+                                        <label>あなたの名前:<span>*</span></label>
                                         <input class="form-control" type="text" placeholder="" name="name">
                                     </div>
                                     <div class="form-group">
-                                        <label>Emailingiz:<span>*</span></label>
+                                        <label>あなたの電子メール:<span>*</span></label>
                                         <input class="form-control" type="email" placeholder="" name="email">
                                     </div>
                                     <div class="form-group">
-                                        <label>Sizning reytingingiz<span></span></label>
+                                        <label>商品の評価はどうですか？<span></span></label>
                                         <select class="ps-rating" name="rating">
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -133,11 +133,11 @@
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 ">
                                     <div class="form-group">
-                                        <label>Sizning fikringiz</label>
+                                        <label>あなたの意見</label>
                                         <textarea class="form-control" rows="6" name="review"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <button class="ps-btn--outline">Sharhni yuborish</button>
+                                        <button class="ps-btn--outline">レビューを送信する</button>
                                     </div>
                                 </div>
                             
