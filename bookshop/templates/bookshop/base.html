@@ -32,7 +32,7 @@
        
 
 
-        <title>{% block title %} BookShop {% endblock %}</title>
+        <title>{% block title %} KIA {% endblock %}</title>
     </head>
     <body>
         <div class="header--sidebar"></div>
@@ -41,23 +41,23 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12 ">
-                            <p>Tashkent | Uzbekistan:  {{time}}</p>
+                            <p>タシケント | ウズベキスタン:  {{time}}</p>
                         </div>
                         <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12 ">
                             <div class="header__actions">
                                 {% if user.is_authenticated %}
-                                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mening akkountim<i class="fa fa-angle-down"></i></a>
+                                    <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">マイアカウント<i class="fa fa-angle-down"></i></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Mening boshqaruv panelim</a></li>
-                                            <li><a href="{% url 'logout' %}">Chiqish</a></li>
+                                            <li><a href="#">マイ ダッシュボード</a></li>
+                                            <li><a href="{% url 'logout' %}">出口</a></li>
                                             
                                         </ul>
                                     </div>
                                 {% else %}
-                                <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Kirish & Royxatdan o`tish <i class="fa fa-angle-down"></i></a>
+                                <div class="btn-group ps-dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ログイン & 登録<i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{% url 'login' %}">Kirish</a></li>
-                                        <li><a href="{% url 'register' %}"> Royxatdan o`tish</a></li>
+                                        <li><a href="{% url 'login' %}">入力</a></li>
+                                        <li><a href="{% url 'register' %}">登録</a></li>
                                     </ul>
                                 </div>
                                 {% endif %}
@@ -74,10 +74,10 @@
                     </div>
                     <div class="center">
                         <ul class="main-menu menu">
-                            <li class="current-menu-item "><a href="{% url 'index' %}">Menyu</a></li>
-                            <li><a href="{% url 'product_list' %}">Kategoriyalar.</a></li>
+                            <li class="current-menu-item "><a href="{% url 'index' %}">メニュー</a></li>
+                            <li><a href="{% url 'product_list' %}">カテゴリー</a></li>
                             
-                            <li><a href="{% url 'contact_us' %}">Boglanish.</a></li>
+                            <li><a href="{% url 'contact_us' %}">繋がり</a></li>
                         </ul>
                     </div>
                     <div class="right">
@@ -91,8 +91,8 @@
                                     <div class="ps-cart-item">
                                         <div class="ps-cart-item__thumbnail"><a href="{{ product.get_absolute_url }}"></a><img src="{{product.image.url}}" alt=""></div>
                                         <div class="ps-cart-item__content">
-                                           <a class="ps-cart-item__title" href="{{ product.get_absolute_url }}"><small>{{ product.name }} <br> Yagona narx ${{ item.price }}</small></a>
-                                           <p> Umumiy miqdori: {{ item.quantity }}x<span> <br> Umumiy narx ${{ item.total_price }}</span></p>
+                                           <a class="ps-cart-item__title" href="{{ product.get_absolute_url }}"><small>{{ product.name }} <br> 定額制料金 ${{ item.price }}</small></a>
+                                           <p> 合計金額: {{ item.quantity }}x<span> <br> 合計金額 ${{ item.total_price }}</span></p>
                                         </div>
                                         
                                     </div>
@@ -102,12 +102,12 @@
                                 {% endfor %}
                                 <div class="ps-cart__total">
                                     
-                                    <p>Jami Narx:<span>${{ cart.get_total_price }}</span></p>
+                                    <p>合計金額:<span>${{ cart.get_total_price }}</span></p>
                                 </div>
                                 {% if cart.get_total_price == 0 %}
                                     <div class="ps-cart__footer"><a class="ps-btn" >Savat bo'sh<i class="ps-icon-arrow-left"></i></a></div>
                                 {% else %}
-                                    <div class="ps-cart__footer"><a class="ps-btn" href="{% url 'order_create' %}">Tolov<i class="ps-icon-arrow-left"></i></a></div>
+                                    <div class="ps-cart__footer"><a class="ps-btn" href="{% url 'order_create' %}">支払い<i class="ps-icon-arrow-left"></i></a></div>
                                 {% endif %}
                                 
                             </div>
@@ -134,28 +134,28 @@
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                         <div class="ps-iconbox">
                             <header><i class="ps-icon-delivery"></i>
-                                <h3>Yetkazib berish bepul.</h3>
-                                <p>buyurtma $199 AQSh dollaridan ortiq</p>
+                                <h3>送料無料</h3>
+                                <p>199 米ドル以上の注文</p>
                             </header>
-                            <p>Paketni kuzatmoqchimisiz? Buyurtmalaringizdan kuzatuv ma'lumotlari va buyurtma tafsilotlarini toping.</p>
+                            <p>荷物を追跡したいですか？注文の追跡情報と注文の詳細を確認する</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                         <div class="ps-iconbox">
                             <header><i class="ps-icon-wallet"></i>
-                                <h3>100% PUL QAYTISH.</h3>
-                                <p>30 kun ichida Yetkazib beriladi.</p>
+                                <h3>100% 返金</h3>
+                                <p>30日以内に配達されます。</p>
                             </header>
-                            <p>To'liq pulni qaytarish uchun etkazib berilgan kundan boshlab 30 kun ichida sotilgan yangi va ochilmagan mahsulotlarning ko'pini qaytarishingiz mumkin.</p>
+                            <p>配達から 30 日以内に販売されたほとんどの新品および未開封の商品を返品して、全額返金することができます。</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                         <div class="ps-iconbox">
                             <header><i class="ps-icon-customer"></i>
-                                <h3>24/7 qo'llab -quvvatlash.</h3>
-                                <p>ONLAYN YORDAM BERISHIMIZ MUMKIN.</p>
+                                <h3>年中無休のサポート。</h3>
+                                <p>オンラインでお手伝いします。</p>
                             </header>
-                            <p>Biz mijozlar uchun 24/7 ishonch telefonini taklif qilamiz, shuning uchun agar sizda savol bo'lsa, yolg'iz qolmaysiz.</p>
+                            <p>年中無休 24 時間体制のカスタマー ヘルプラインをご利用いただけます。</p>
                         </div>
                     </div>
                 </div>
