@@ -81,5 +81,5 @@ def Comment_Review(request,product_id):
         review_comment = request.POST['review']
         product = get_object_or_404(Product,id=product_id)
         comment_review = Review.objects.create(product=product,name=name,email=email,rating=rating,review_comment=review_comment)
-        message = messages.success(request,"Sizning kommentariyangiz yuborildi")  
+        message = messages.success(request,"コメントが送信されました")  
         return render(request,'bookshop/product_detail.html')

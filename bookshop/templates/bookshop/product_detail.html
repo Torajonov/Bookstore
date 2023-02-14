@@ -50,7 +50,7 @@
                             <div class="ps-product__short-desc">
                                 <p><b>製品説明:</b> <br>{{ product.description }}</p>
                             </div>
-                            q
+                            
                             <form action="{% url 'cart_add' product.id  %}" method="post">
                                 {{ cart_product_form }}
                                 {% csrf_token %}

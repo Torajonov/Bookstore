@@ -105,7 +105,7 @@
                                     <p>合計金額:<span>${{ cart.get_total_price }}</span></p>
                                 </div>
                                 {% if cart.get_total_price == 0 %}
-                                    <div class="ps-cart__footer"><a class="ps-btn" >Savat bo'sh<i class="ps-icon-arrow-left"></i></a></div>
+                                    <div class="ps-cart__footer"><a class="ps-btn" >カートは空です<i class="ps-icon-arrow-left"></i></a></div>
                                 {% else %}
                                     <div class="ps-cart__footer"><a class="ps-btn" href="{% url 'order_create' %}">支払い<i class="ps-icon-arrow-left"></i></a></div>
                                 {% endif %}

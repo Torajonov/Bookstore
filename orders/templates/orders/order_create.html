@@ -1,11 +1,11 @@
 {% extends 'bookshop/base.html' %}
 {% load static %}
-<title>{% block title %} Tekshirib ko'rish | Bookshop {% endblock%}</title>
+<title>{% block title %} 見てみな | KIA {% endblock%}</title>
 {% block content %} 
     <div class="ps-hero">
         <div class="container">
-            <h3>Buyurtma tafsiloti</h3>
-            <p>Sahifa tartibi</p>
+            <h3>注文詳細</h3>
+            <p>ページレイアウト</p>
         </div>
     </div>
     <div class="ps-checkout pt-40 pb-40">
@@ -15,16 +15,16 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 ">
                         <div class="ps-checkout__billing">
-                            <h3>Harid tafsilotlari</h3>
+                            <h3>購入の詳細</h3>
                             <div class="form-group form-group--inline">
-                                <label>Ismingiz<span>*</span>
+                                <label>あなたの名前<span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="text" name="first_name" required>
                                 </div>
                             </div>
                             <div class="form-group form-group--inline">
-                                <label>Familiyangiz<span>*</span>
+                                <label>あなたの名字<span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="text" name="last_name" required>
@@ -32,28 +32,28 @@
                             </div>
                             
                             <div class="form-group form-group--inline">
-                                <label>Email Manzilingiz<span>*</span>
+                                <label>あなたのメールアドレス<span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="email" name="email" required>
                                 </div>
                             </div>
                             <div class="form-group form-group--inline">
-                                <label>Yashash Manzilingiz<span>*</span>
+                                <label>ご住所<span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="text" name="address" required>
                                 </div>
                             </div>
                             <div class="form-group form-group--inline">
-                                <label>Telefon raqamingiz<span>*</span>
+                                <label>あなたの電話番号<span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="text" name="phone">
                                 </div>
                             </div>
                             <div class="form-group form-group--inline">
-                                <label>Post kodi<span>*</span>
+                                <label>郵便番号<span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="text" name="postal_code">
@@ -61,7 +61,7 @@
                             </div>
                             
                             <div class="form-group form-group--inline">
-                                <label>Shaharingiz <span>*</span>
+                                <label>あなたの街 <span>*</span>
                                 </label>
                                 <div class="form-group__content">
                                     <input class="form-control" type="text" name="city">
@@ -73,14 +73,14 @@
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
                         <div class="ps-checkout__order">
                             <header>
-                                <h3>Sizning buyurtmangiz</h3>
+                                <h3>ご注文</h3>
                             </header>
                             <div class="content">
                                 <table class="table ps-checkout__products">
                                     <thead>
                                         <tr>
-                                            <th class="text-uppercase">Mahsulot</th>
-                                            <th class="text-uppercase">Umumiy</th>
+                                            <th class="text-uppercase">製品</th>
+                                            <th class="text-uppercase">全般的</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -99,26 +99,26 @@
                                         </tr>
                                         {% endif %}
                                         <tr>
-                                            <td>Umumiy narx : </td>
+                                            <td>合計金額 : </td>
                                             <td>${{ cart.get_total_price_after_discount|floatformat:2 }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <footer>
-                                <h3>Tolov usullari</h3>
+                                <h3>お支払い方法</h3>
                                 
                                 <div class="form-group paypal">
                                     <div class="ps-radio ps-radio--small">
                                         <input class="form-control" type="radio" name="payment" id="rdo02" checked>
-                                        <label for="rdo02">Plastik karta</label>
+                                        <label for="rdo02">プラスチックカード</label>
                                     </div>
                                     <ul class="ps-payment-method">
                                         <li><a href="#"><img src="{% static 'bookshop/images/payment/visa.png' %}" alt=""></a></li>
                                         <li><a href="#"><img src="{% static 'bookshop/images/payment/mastercard.png' %}" alt=""></a></li>
                                        
                                     </ul>
-                                    <button class="ps-btn ps-btn--fullwidth">To'lov</button>
+                                    <button class="ps-btn ps-btn--fullwidth">支払い</button>
                                 </div>
                             </footer>
                         </div>
