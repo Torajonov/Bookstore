@@ -4,7 +4,7 @@ from bookshop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
 from coupons.forms import CouponApplyForm
-
+from django.http import HttpResponse
 
 @require_POST
 def cart_add(request, product_id):

@@ -6,7 +6,7 @@ from cart.forms import CartAddProductForm
 from django.contrib import messages
 from datetime import datetime
 from django.template import RequestContext
- 
+from django.http import HttpResponse
  
 
 
