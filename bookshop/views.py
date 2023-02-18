@@ -71,8 +71,6 @@ def search_Result(request):
         query_result = Product.objects.filter(name__startswith=searh_query)
         return render(request,'bookshop/search.html',{'query_result':query_result,'searh_query':searh_query})
 
-
-#review 
 def Comment_Review(request,product_id):
     if request.method == 'POST':
         name = request.POST['name']
